@@ -149,6 +149,3 @@ function calculate(a, oper, b) {
   return operate[oper](a, b);  
 }
 
-function memStore() {
-
-}

@@ -5,10 +5,10 @@ html {
 .container {
   display: flex;
   flex-direction: column;
-  width: 350px;
+  width: 300px;
   padding: 20px;
-  border: 10px;
-  border-radius: 10px solid #ccc;
+  border: 10px solid #ccc;
+  border-radius: 10px;
   background: #ddd;
 }
 
@@ -19,34 +19,97 @@ html {
   color: white;
   font-size: 40px;
   height: 60px;
-  margin-bottom: 20px;
+  margin-bottom: 2px;
   overflow: hidden;
 }
-
+/*
 .buttons {
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
-
+*/
 button {
   padding: 15px 20px;
   border: 1px solid;
   border-radius: 5px;
   cursor: pointer;
-  flex: 1;
+  
 }
 
-.memory > button {
-  padding: 10px 22px;  
-  gap: 1px;
-  background: #ddd;
+
+
+.memory {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.memory > button {  
+  padding: 5px 17px;  
+  background: #ddd;  
+}
+
+.keyboard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-areas: 
+    'options options options options'
+    'number number number operations'
+    'number number number operations'
+    'number number number operations'
+    'number number number operations';   
+}
+
+.options {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-area: options;
+}
+
+.options button:hover {
+  background-color: firebrick;
+  color: whitesmoke;
+}
+
+.operations {
+  display: grid;
+  grid-area: operations;
+}
+
+.numbers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-area: number;
 }
 
 #equal {
+  grid-column: 3/5;  
   background-color: darkolivegreen;
+}
+
+#equal:hover {
+  background-color: firebrick;
+  color: whitesmoke;
+  transform: scale(1.2);  
 }
 
 .operations > button {
   background-color: darkkhaki;
+}
+
+.numbers > button:hover {
+  background-color: aqua;
+}
+
+.operations > button:hover {
+  background-color: forestgreen;
+}
+
+.memory > button:hover:not([disabled]) {
+  background-color: #333;
+  color: whitesmoke;
 }
